@@ -79,24 +79,24 @@ export default class ApiClient {
   // # region end
 
   // # region リクエスト種別
-  public async get<T>(url: string, params?: any): Promise<any> {
+  public async get<T>(url: string, params?: any): Promise<AxiosResponse> {
     const response = await this.axiosInstance.get<T>(url, { params });
     return response;
   }
 
-  public async post<T>(url: string, body: any): Promise<T> {
+  public async post<T>(url: string, body: any): Promise<AxiosResponse> {
     const response = await this.axiosInstance.post<T>(url, body);
-    return response.data;
+    return response;
   }
 
-  public async put<T>(url: string, body: any): Promise<T> {
+  public async put<T>(url: string, body: any): Promise<AxiosResponse> {
     const response = await this.axiosInstance.put<T>(url, body);
-    return response.data;
+    return response;
   }
 
-  public async delete<T>(url: string): Promise<T> {
+  public async delete<T>(url: string): Promise<AxiosResponse> {
     const response = await this.axiosInstance.delete<T>(url);
-    return response.data;
+    return response;
   }
   // # region end
 }

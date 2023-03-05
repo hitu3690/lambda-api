@@ -19,9 +19,10 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   rules: {
-    "@typescript-eslint/no-unsafe-assignment": 1,
-    "@typescript-eslint/no-unsafe-member-access": 1,
+    "@typescript-eslint/no-unsafe-assignment": 0,
+    "@typescript-eslint/no-unsafe-member-access": 0,
     "@typescript-eslint/no-unsafe-call": 1,
+    "@typescript-eslint/no-explicit-any": 0,
   },
   settings: {
     "import/resolver": {
