@@ -15,7 +15,7 @@ export async function handler(
       statusCode: 200,
       body: JSON.stringify({
         message: "Hello from TypeScript Lambda!",
-        input: event,
+        input: res,
       }),
     };
 

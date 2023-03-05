@@ -35,28 +35,29 @@ export default class ApiClient {
   }
 
   // # region インターセプターのコールバック関数
-  private handleSuccessRequest(config: InternalAxiosRequestConfig) {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+  private handleSuccessRequest = (config: InternalAxiosRequestConfig) => {
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   config.headers.Authorization = `Bearer ${token}`;
+    // }
     return config;
-  }
+  };
 
-  private handleErrorRequest(error: AxiosError) {
+  private handleErrorRequest = (error: AxiosError) => {
     return Promise.reject(error);
-  }
+  };
 
-  private handleSuccessResponse(
+  private handleSuccessResponse = (
     response: AxiosResponse<AxiosResponse<unknown>>
-  ): AxiosResponse<unknown> {
+  ): AxiosResponse<unknown> => {
     return response.data;
-  }
+  };
 
-  private handleErrorResponse(error: any): Promise<never> {
+  private handleErrorResponse = (error: any): Promise<never> => {
     if (error.response) {
       const status = error.response.status;
-      const message = error.response.data?.message ?? "エラーが発生しました";
+      const message: string =
+        error.response.data?.message ?? "エラーが発生しました";
 
       switch (status) {
         case 401:
@@ -74,13 +75,13 @@ export default class ApiClient {
     }
 
     return Promise.reject(error);
-  }
+  };
   // # region end
 
   // # region リクエスト種別
-  public async get<T>(url: string, params?: any): Promise<T> {
+  public async get<T>(url: string, params?: any): Promise<any> {
     const response = await this.axiosInstance.get<T>(url, { params });
-    return response.data;
+    return response;
   }
 
   public async post<T>(url: string, body: any): Promise<T> {
