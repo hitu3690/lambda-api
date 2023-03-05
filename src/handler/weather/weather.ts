@@ -3,7 +3,7 @@ import {
   APIGatewayProxyResult,
   Context,
 } from "aws-lambda";
-import api from "../../api";
+import api from "@/api";
 
 export async function handler(
   event: APIGatewayProxyEvent,

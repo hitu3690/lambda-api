@@ -1,5 +1,5 @@
-import ApiClient from "./client";
-import OpenWeatherApi from "./openWeather";
+import ApiClient from "@/api/client";
+import OpenWeatherApi from "@/api/openWeather";
 
 interface ApiService {
   openWeather: OpenWeatherApi;

@@ -23,9 +23,9 @@ module.exports = {
     "@typescript-eslint/no-unsafe-member-access": 1,
     "@typescript-eslint/no-unsafe-call": 1,
   },
-  // settings: {
-  //   "import/resolver": {
-  //     typescript: {},
-  //   },
-  // },
+  settings: {
+    "import/resolver": {
+      typescript: {},
+    },
+  },
 };

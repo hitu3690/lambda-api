@@ -21,11 +21,13 @@
     "@typescript-eslint/parser": "^5.54.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.5"
   },
   "husky": {
@@ -35,7 +37,9 @@
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix",
-    "*.ts": "tsc --noEmit --lib es6,dom",
+    "*.ts": [
+      "bash -c 'tsc -p ./tsconfig.json'"
+    ],
     "*.{js,ts,json}": "prettier --write"
   }
 }
